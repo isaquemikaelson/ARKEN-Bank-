@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arken Bank – Painel</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0a0a0a;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: start;
+      min-height: 100vh;
+      padding-top: 60px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      color: #FFD700;
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    p.subtitle {
+      font-size: 1.1rem;
+      color: #ccc;
+    }
+
+    .container {
+      background-color: #111;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px #FFD70020;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+    }
+
+    .welcome {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .saldo {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-bottom: 25px;
+      color: #FFD700;
+    }
+
+    .btn {
+      background-color: #FFD700;
+      border: none;
+      color: #000;
+      padding: 12px 20px;
+      margin: 10px 5px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #e6c200;
+      transform: scale(1.05);
+    }
+
+    footer {
+      position: fixed;
+      bottom: 10px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Arken Bank</h1>
+    <p class="subtitle">O banco do futuro</p>
+  </header>
+
+  <div class="container">
+    <div class="welcome">Bem-vindo, <span id="nomeUsuario">Cliente</span>!</div>
+    <div class="saldo">Saldo atual: <span id="saldo">R$ 0,00</span></div>
+    
+    <button class="btn" onclick="fazerPix()">Fazer Pix</button>
+    <button class="btn" onclick="verHistorico()">Ver Histórico</button>
+    <button class="btn" onclick="verEmprestimos()">Empréstimos</button>
+    <button class="btn" onclick="sair()">Sair</button>
+  </div>
+
+  <footer>
+    © 2025 Arken Bank. Todos os direitos reservados.
+  </footer>
+
+  <script>
+    // Simulação de dados
+    const nome = localStorage.getItem("nomeUsuario") || "Cliente";
+    const saldo = localStorage.getItem("saldo") || 5000;
+
+    document.getElementById("nomeUsuario").innerText = nome;
+    document.getElementById("saldo").innerText = "R$ " + parseFloat(saldo).toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+
+    function fazerPix() {
+      window.location.href = "pix.html";
+    }
+
+    function verHistorico() {
+      window.location.href = "historico.html";
+    }
+
+    function verEmprestimos() {
+      window.location.href = "emprestimos.html";
+    }
+
+    function sair() {
+      localStorage.clear();
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro - Arken Bank</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0e0e0e;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .card {
+      background-color: #1b1b1b;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 0 20px rgba(218, 165, 32, 0.3);
+      width: 100%;
+      max-width: 400px;
+    }
+    h2 {
+      color: gold;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      background-color: #2a2a2a;
+      color: #fff;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: gold;
+      color: black;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #e6c200;
+    }
+    .msg {
+      margin-top: 10px;
+      color: lightgreen;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Criar Conta</h2>
+    <input type="email" id="email" placeholder="E-mail" />
+    <input type="password" id="senha" placeholder="Senha" />
+    <button onclick="criarConta()">Cadastrar</button>
+    <p class="msg" id="mensagem"></p>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDyYL3cxQneLqTPVpn7JzGSs9HHIEuTiw0",
+      authDomain: "arken-bank.firebaseapp.com",
+      projectId: "arken-bank",
+      storageBucket: "arken-bank.appspot.com",
+      messagingSenderId: "657001093115",
+      appId: "1:657001093115:web:ce6fa7f02d50f160099d5e"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    function criarConta() {
+      const email = document.getElementById('email').value;
+      const senha = document.getElementById('senha').value;
+
+      createUserWithEmailAndPassword(auth, email, senha)
+        .then((userCredential) => {
+          document.getElementById('mensagem').textContent = "Conta criada com sucesso!";
+        })
+        .catch((error) => {
+          document.getElementById('mensagem').textContent = "Erro: " + error.message;
+        });
+    }
+
+    window.criarConta = criarConta;
+  </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+/* Estilo profissional baseado no banner do Arken Bank */
+
+body {
+  background-color: #0b0b0b; /* fundo escuro */
+  color: #f8f8f8;
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #111;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 1px solid #333;
+}
+
+header h1 {
+  color: #FFD700; /* dourado */
+  font-size: 2rem;
+  letter-spacing: 2px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #1a1a1a;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.2); /* brilho dourado leve */
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: 600;
+  color: #f8f8f8;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  background-color: #111;
+  border: 1px solid #FFD700;
+  border-radius: 12px;
+  color: #f8f8f8;
+  font-size: 1rem;
+}
+
+button {
+  margin-top: 20px;
+  background-color: #FFD700; /* botão dourado */
+  color: #0b0b0b;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #e6c200;
+}
+
+.card {
+  background-color: #141414;
+  border: 1px solid #333;
+  border-left: 6px solid #FFD700;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(255, 215, 0, 0.1);
+}
+
+footer {
+  text-align: center;
+  color: #555;
+  padding: 20px;
+  font-size: 0.9rem;
+}
